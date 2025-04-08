@@ -32,7 +32,7 @@
     <div class="flex flex-col items-center font-mono">
       <p class="text-lg text-gray-500">Base 10 Digital</p>
       <p class=" text-[2rem] font-bold">
-        {@render renderNumber(b10Hour)}:{@render renderNumber(b10Minute)}:{@render renderNumber(b10Second)}
+        {@render renderNumber(b10Hour)}{@render renderNumber(b10Minute)}.{@render renderNumber(b10Second)}
       </p>
     </div>
 
@@ -70,20 +70,32 @@
         "
           fill="black"
         >
-          {i}
+          {i * 100}
         </text>
       {/each}
       <!-- minute ticks -->
       {#each Array(b10MinuteTickCount) as _, i}
-        <line
-          x1="50"
-          y1="5"
-          x2="50"
-          y2="7"
-          stroke="black"
-          stroke-width="1.5"
-          transform="rotate({(i * 360) / b10MinuteTickCount} 50 50)"
-        />
+        {#if i % 5 == 0}
+          <line
+            x1="50"
+            y1="5"
+            x2="50"
+            y2="8.5"
+            stroke="black"
+            stroke-width="1.5"
+            transform="rotate({(i * 360) / b10MinuteTickCount} 50 50)"
+          />
+        {:else}
+          <line
+            x1="50"
+            y1="5"
+            x2="50"
+            y2="7"
+            stroke="black"
+            stroke-width="1.5"
+            transform="rotate({(i * 360) / b10MinuteTickCount} 50 50)"
+          />
+        {/if}
       {/each}
       <!-- second -->
       <line
