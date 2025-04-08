@@ -65,7 +65,7 @@
         "
           fill="black"
         >
-          {i == 0 ? 10 : i}
+          {i}
         </text>
       {/each}
       <!-- minute ticks -->
