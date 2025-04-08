@@ -21,18 +21,23 @@
 </script>
 
 <main>
-  <header class="text-center text-[2rem]">
+  <header class="text-center text-[1.5rem]">
     <h1 class="font-bold">Base 10 Time!</h1>
     <p class="text-gray-500">
-      <em>
-        It's the future. Start using it now!
-      </em>
+      <em> It's the future. Start using it now! </em>
     </p>
   </header>
 
-  <div class="flex w-full items-center justify-center font-mono">
+  <div class="mt-4 flex flex-col w-full items-center justify-center font-mono">
+    <div class="flex flex-col items-center font-mono">
+      <p class="text-lg text-gray-500">Base 10 Digital</p>
+      <p class=" text-[2rem] font-bold">
+        {@render renderNumber(b10Hour)}:{@render renderNumber(b10Minute)}:{@render renderNumber(b10Second)}
+      </p>
+    </div>
+
     <svg
-      class="w-1/2 h-1/2"
+      class="w-1/2"
       viewBox="0 0 100 100"
       xmlns="http://www.w3.org/2000/svg"
       xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -111,13 +116,6 @@
         transform="rotate({(b10Hour * 360) / b10HourTickCount - 90} 50 50)"
       />
     </svg>
-
-    <div class="flex flex-col items-center font-mono">
-      <p class="text-lg text-gray-500">Base 10 Digital</p>
-      <p class=" text-[2rem] font-bold">
-        {@render renderNumber(b10Hour)}:{@render renderNumber(b10Minute)}:{@render renderNumber(b10Second)}
-      </p>
-    </div>
   </div>
 </main>
 
